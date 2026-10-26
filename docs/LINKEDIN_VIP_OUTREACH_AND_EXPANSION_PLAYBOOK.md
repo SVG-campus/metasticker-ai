@@ -32,7 +32,7 @@ These 10 custom messages are tailored specifically to each individual's role, la
 >  
 > We’re debuting **MetaSticker AI** at the upcoming Meta Global AI Developer Hackathon. We’re solving the last-mile consumer distribution of AI through physical retail: $4.99 holographic vinyl sticker packs sold at Target/Walmart where peeling the backing paper reveals a cryptographic key that instantly spins up a fine-tuned Meta Llama 3.3 micro-app in 45 seconds.  
 >  
-> We already have active discussions underway with **DIESEL** for a pilot launch across their North American market, delivering an 83% gross margin with $0.00 idle overhead. We’re preparing our YC application and would love to share our 2-minute live demo and retail unit economics model with you.  
+> Our serverless burst compute runs at $0.0029 per session with zero idle cash burn and a 72% gross margin. We’re preparing our YC application and would love to share our 2-minute live demo and retail unit economics model with you.  
 >  
 > Live interactive prototype: https://nimble-squall-4cxfebb.tmp.now  
 >  
@@ -52,7 +52,7 @@ These 10 custom messages are tailored specifically to each individual's role, la
 >  
 > We are debuting **MetaSticker AI**—an ad-sponsored interactive sticker network bridging physical retail with digital creator streams. Brands sponsor custom physical holographic vinyl stickers with dual-QR architecture (front QR for viral brand discovery; scratch-off waxy backing for pre-loaded compute credits), while creators embed floating interactive video overlay stickers on YouTube and TikTok that distribute store discounts upon click.  
 >  
-> We already have active discussions with **DIESEL** for a pilot retail launch across North America, proving out the physical-to-digital sponsored ad unit. I’d love to get your perspective on how brand ad dollars can bridge physical collectibles with performance digital ad units.  
+> We’ve modeled an 83% gross margin with 100% zero-idle infrastructure. I’d love to get your perspective on how brand ad dollars can bridge physical collectibles with performance digital ad units.  
 >  
 > Executive Whitepaper: https://nimble-squall-4cxfebb.tmp.now/MetaSticker_AI_Brand_Sponsorship_Whitepaper.pdf  
 >  
@@ -96,7 +96,7 @@ These 10 custom messages are tailored specifically to each individual's role, la
 >  
 > We are developing **MetaSticker AI**—a collectible merchandise line that connects physical sneaker drops to interactive AI agents. Fans purchase limited-edition holographic vinyl stickers at retail; scanning the public front launches an interactive 3D showroom, while peeling the private backing key grants athlete training credits and VIP drop access.  
 >  
-> We already have active discussions with **DIESEL** for a pilot launch across their North American market. If co-branding alongside or exploring a parallel footwear pilot fits adidas' branding, we would love to collaborate!  
+> Our cloud compute runs on zero-idle serverless tech, delivering 70%+ gross margins with no recurring server bills for adidas.  
 >  
 > We’ve prepared an executive briefing on how this can be deployed across major marathon expos and flagship stores: https://nimble-squall-4cxfebb.tmp.now/MetaSticker_AI_Brand_Sponsorship_Whitepaper.pdf  
 >  
@@ -178,7 +178,7 @@ These 10 custom messages are tailored specifically to each individual's role, la
 >  
 > We’re building **MetaSticker AI**—biodegradable FSC-certified paper and recycled vinyl stickers that carry autonomous environmental data micro-apps. Scanning the sticker on a jacket or bottle opens live trail reports and climate impact tracking funded by zero-idle cloud credits.  
 >  
-> We are currently preparing initial retail pilot lines, including discussions with **DIESEL** for North American flagships. If exploring a sustainable outdoor pilot fits Patagonia's mission, we would love to collaborate!  
+> We’d love to showcase a pilot sustainable sticker series at our upcoming presentation. Open to a quick 10-minute chat?  
 >  
 > Whitepaper: https://nimble-squall-4cxfebb.tmp.now/MetaSticker_AI_Brand_Sponsorship_Whitepaper.pdf  
 >  
@@ -218,7 +218,7 @@ These 10 custom messages are tailored specifically to each individual's role, la
 >  
 > We are debuting **MetaSticker AI**—creating co-branded holographic stickers designed specifically for nylon bags, water bottles, and laptop sleeves. When BAGGU fans peel the sticker, they unlock an interactive digital design room to customize prints and share digital stickers across social media.  
 >  
-> We are currently in active discussions with **DIESEL** for a pilot retail launch across North America. If co-branding alongside them fits BAGGU’s aesthetic, we would love to share a sample pack! Could you point me to the right person on your brand partnerships team?  
+> Could you point me to the right person on your brand partnerships or merchandise team to share a sample pack?  
 >  
 > Demo: https://nimble-squall-4cxfebb.tmp.now  
 >  

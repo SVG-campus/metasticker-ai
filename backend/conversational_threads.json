@@ -1,36 +1,4 @@
 {
-  "antonio.strazzullo@diesel.com": {
-    "prospect_name": "Antonio Strazzullo",
-    "brand_name": "Diesel",
-    "email": "antonio.strazzullo@diesel.com",
-    "stage": "HANDED_OVER",
-    "turn_count": 0,
-    "history": [
-      {
-        "sender": "Antonio Strazzullo <antonio.strazzullo@diesel.com>",
-        "subject": "Re: Partnership: Custom Holographic AI Stickers (Meta Developer Hackathon)",
-        "content": "Hi Santiago,\nThanks for the note. This holographic scratch-off concept is interesting for our North America flagship stores. \nCould you share your rate card and retail pricing quote? Also, let's schedule a 15-minute call next Tuesday or Thursday afternoon to discuss custom branding.\nBest,\nAntonio Strazzullo\nHead of Retail North America, DIESEL",
-        "timestamp": "2026-10-25 21:47:14"
-      }
-    ],
-    "monad_commentaries": [
-      {
-        "timestamp": "2026-10-25 21:47:14",
-        "commentary": {
-          "decision": "TRIGGER_HANDOVER_PACKAGE",
-          "confidence": 0.95,
-          "signals": [
-            "call next tuesday or thursday",
-            "schedule a 15-minute call",
-            "rate card",
-            "custom"
-          ],
-          "reasoning": "High-intent closing signal detected: ['call next tuesday or thursday', 'schedule a 15-minute call', 'rate card', 'custom']. Prospect is asking for a live meeting, pricing/contract, or custom agent architecture. Cease autonomous replies immediately to protect deal prestige and hand over to founder.",
-          "action": "Generate full handover package, compile live demo credentials, and alert daboldflex@gmail.com with ACTION REQUIRED."
-        }
-      }
-    ]
-  },
   "hello@kachava.com": {
     "prospect_name": "Ka'Chava",
     "brand_name": "Kachava",

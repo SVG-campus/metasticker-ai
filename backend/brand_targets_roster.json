@@ -1,0 +1,103 @@
+{
+  "target_tier": "AAA_AAAA_GLOBAL_ICONS",
+  "meta_hackathon_window": "October 26 - November 4, 2026",
+  "brands": [
+    {
+      "id": "red_bull",
+      "brand_name": "Red Bull",
+      "category": "Energy & Esports",
+      "priority": "AAAA",
+      "ideal_targets": [
+        {"title": "Global Head of Brand Partnerships & Esports", "name": "Partnerships Desk", "email": "partnerships@redbull.com"},
+        {"title": "Collegiate & Campus Brand Manager", "name": "Campus Marketing", "email": "campus@redbull.com"}
+      ],
+      "channels": ["Direct Brand Email", "LinkedIn InMail", "Cerebral Valley / Red Bull Basement"],
+      "custom_hook": "Holographic die-cut stickers featuring Red Bull energy foil + gaming coach micro-agent. Streamers paste interactive floating stickers on YouTube/Twitch granting viewers +$2.00 credits & 15% discount.",
+      "proposed_pilot": "$5,000 Hackathon Swag Grant (2,500 packs) or $15,000 In-Stream Streamer Campaign"
+    },
+    {
+      "id": "playstation",
+      "brand_name": "Sony PlayStation",
+      "category": "Gaming & Entertainment",
+      "priority": "AAAA",
+      "ideal_targets": [
+        {"title": "VP Global Third Party Relations & Licensing", "name": "PlayStation Partnerships", "email": "licensing@playstation.sony.com"}
+      ],
+      "channels": ["PlayStation Partners Portal", "GDC/Hackathon Licensing Network"],
+      "custom_hook": "Official Astro Bot & God of War holographic collectible stickers sold at GameStop/Target. Scratching reveals companion guide AI with zero cloud subscription required.",
+      "proposed_pilot": "$50,000 Category Exclusive Retail Drop (25,000 packs across Target/Walmart + 20% rev-share)"
+    },
+    {
+      "id": "discord",
+      "brand_name": "Discord",
+      "category": "Developer & Community Platform",
+      "priority": "AAA",
+      "ideal_targets": [
+        {"title": "Head of Developer Platform & App Directory", "name": "Discord Ecosystem", "email": "dev-partnerships@discord.com"}
+      ],
+      "channels": ["Discord Developer Portal", "Direct Executive Reachout"],
+      "custom_hook": "Wumpus collectible stickers: scratch the secret key to build and deploy custom Discord bot micro-apps in 45s without touching AWS or Node.js servers.",
+      "proposed_pilot": "$5,000 Hackathon Swag Grant (2,500 packs for Meta Hackathon participants)"
+    },
+    {
+      "id": "github",
+      "brand_name": "GitHub (Microsoft)",
+      "category": "Developer Culture",
+      "priority": "AAAA",
+      "ideal_targets": [
+        {"title": "VP of Developer Relations & GitHub Shop", "name": "GitHub Community", "email": "partnerships@github.com"}
+      ],
+      "channels": ["GitHub Universe / Octocat Merch Channels"],
+      "custom_hook": "The beloved physical Octocat laptop sticker comes alive: scratching reveals an autonomous code micro-agent powered by Llama 3.3 and Monad with zero idle cost.",
+      "proposed_pilot": "$10,000 Global Open Source Developer Drop"
+    },
+    {
+      "id": "crunchyroll",
+      "brand_name": "Crunchyroll (Sony)",
+      "category": "Anime & Pop Culture",
+      "priority": "AAA",
+      "ideal_targets": [
+        {"title": "Head of Global Merchandising & Licensing", "name": "Crunchyroll Consumer Products", "email": "licensing@crunchyroll.com"}
+      ],
+      "channels": ["Anime Expo / Licensing Expo / Direct Agency"],
+      "custom_hook": "Holographic anime die-cut collector cards with integrated character companion chatbots. Sold at Hot Topic, Barnes & Noble, and comic stores.",
+      "proposed_pilot": "$15,000 Anime Creator In-Stream Video Campaign (60,000 verified clicks)"
+    },
+    {
+      "id": "liquid_death",
+      "brand_name": "Liquid Death",
+      "category": "Beverage & Viral Marketing",
+      "priority": "AAA",
+      "ideal_targets": [
+        {"title": "VP of Brand Partnerships & Merch", "name": "Liquid Death Syndicate", "email": "partnerships@liquiddeath.com"}
+      ],
+      "channels": ["Liquid Death Country Club / Direct Email"],
+      "custom_hook": "Murder your thirst, murder your cloud bills. Irreverent holographic skull stickers that launch chaotic parody AI assistants in retail aisles.",
+      "proposed_pilot": "$15,000 Festival & Event Swag Pilot"
+    },
+    {
+      "id": "monster_energy",
+      "brand_name": "Monster Energy",
+      "category": "Action Sports & Gaming",
+      "priority": "AAA",
+      "ideal_targets": [
+        {"title": "Director of Gaming & Action Sports Marketing", "name": "Monster Partnerships", "email": "gaming@monsterenergy.com"}
+      ],
+      "channels": ["Esports Event Sponsoring / Retail In-Store Merchandising"],
+      "custom_hook": "Neon green claw holographic vinyl stickers with unlocked gaming bracket & stats micro-apps for collegiate tournament players.",
+      "proposed_pilot": "$5,000 Collegiate Hackathon Grant (2,500 packs)"
+    },
+    {
+      "id": "epic_games",
+      "brand_name": "Epic Games (Fortnite)",
+      "category": "Gaming & Metaverse",
+      "priority": "AAAA",
+      "ideal_targets": [
+        {"title": "Head of Fortnite Ecosystem & Creator Partnerships", "name": "Epic Ecosystem", "email": "creator-partnerships@epicgames.com"}
+      ],
+      "channels": ["Unreal Fest / Creator Program Channels"],
+      "custom_hook": "Collectible physical battle-pass stickers. Scan to launch custom Island analytics and AI loadout optimizers.",
+      "proposed_pilot": "$50,000 Category Exclusive Retail Tour Drop"
+    }
+  ]
+}

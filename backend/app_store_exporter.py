@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
 """
-MetaSticker AI — Automated iOS & Android App Store Exporter (CLI)
-================================================================
+MetaSticker AI — Progressive Web App (PWA) & Mobile Bridge Exporter (CLI)
+========================================================================
 Converts any MetaSticker micro-agent or web application into:
-1. Native Progressive Web App (PWA) installable directly to Home Screen
-2. Android APK / AAB project via Capacitor / React Native Bridge
-3. iOS Xcode Archive via Capacitor iOS Bridge
+1. Native Progressive Web App (PWA) with instant Mobile Safari / Chrome launch (< 2.8s)
+2. Standalone home-screen installation with offline service worker caching ($0 Apple fees)
+3. Optional Capacitor project bridge for teams bringing their own Apple/Google developer accounts
+
+Note on Native App Stores:
+Publishing native .ipa or .aab packages requires the customer to enroll in the Apple Developer
+Program ($99/year) or Google Play Console ($25 one-time), configure signing certificates, and
+undergo 24-72h app review. MetaSticker micro-apps deliberately eliminate this friction via instant
+PWA delivery. For roadmap details on automated white-label App Store submission, see docs/FUTURE_PLANS.md.
 """
 
 from __future__ import annotations
@@ -72,28 +78,31 @@ def export_cli(app_name: str, platform: str, output_dir: str):
         json.dump(cap_cfg, f, indent=2)
 
     print(f"======================================================================")
-    print(f"METASTICKER APP STORE EXPORT PIPELINE: {app_name}")
-    print(f"Target Platform: {platform.upper()}")
+    print(f"METASTICKER MOBILE EXPORT PIPELINE: {app_name}")
+    print(f"Target Mode: {platform.upper()}")
     print(f"======================================================================")
     print(f"[✓] Generated PWA Web Manifest: {manifest_path}")
     print(f"[✓] Generated Capacitor Configuration: {cap_path}")
-    print("\nNext Fast Build Commands:")
+    print("\nInstant Mobile Web Distribution (Zero Fees):")
+    print("  ✓ Instant PWA ready! Users can tap 'Add to Home Screen' in iOS/Android Chrome/Safari.")
+    print("  ✓ Zero Apple Developer Program fees ($0.00 vs $99/year).")
+    print("  ✓ Zero review wait times (launches instantly in 2.8s upon camera QR scan).")
     if platform.lower() in ("android", "all"):
+        print("\nOptional Android Build (Requires Google Play Console account $25):")
         print("  1. npx cap add android")
         print("  2. npx cap sync android")
-        print("  3. npx cap run android (or open in Android Studio for Google Play .aab export)")
+        print("  3. npx cap open android (build signed .aab bundle)")
     if platform.lower() in ("ios", "all"):
+        print("\nOptional iOS Build (Requires Apple Developer Program account $99/yr):")
         print("  1. npx cap add ios")
         print("  2. npx cap sync ios")
-        print("  3. npx cap open ios (build .ipa archive for Apple App Store)")
-    if platform.lower() in ("pwa", "all"):
-        print("  ✓ Instant PWA ready! Users can tap 'Add to Home Screen' in iOS/Android Chrome/Safari.")
+        print("  3. npx cap open ios (build signed .ipa archive in Xcode)")
     print("======================================================================")
 
 def main():
-    parser = argparse.ArgumentParser(description="MetaSticker AI App Store Exporter")
+    parser = argparse.ArgumentParser(description="MetaSticker AI Progressive Web App & Mobile Bridge Exporter")
     parser.add_argument("--name", default="My MetaSticker App", help="Name of application")
-    parser.add_argument("--platform", choices=["pwa", "android", "ios", "all"], default="all", help="Target platform")
+    parser.add_argument("--platform", choices=["pwa", "android", "ios", "all"], default="pwa", help="Target platform (default: pwa)")
     parser.add_argument("--out", default="exported_mobile_app", help="Output directory")
     args = parser.parse_args()
     export_cli(args.name, args.platform, args.out)

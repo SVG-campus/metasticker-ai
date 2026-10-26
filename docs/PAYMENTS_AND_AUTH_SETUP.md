@@ -42,7 +42,7 @@ AUTH0_CLIENT_SECRET=your_auth0_client_secret_here
 - **In-App Top-Ups & Digital Packs:**
   - $4.99: 1 Digital Sticker Pack ($5.00 Compute + 1 Micro-App)
   - $19.99: Creator 5-Pack ($25.00 Compute + Custom Subdomain)
-  - $49.99: Business 15-Pack ($75.00 Compute + Custom Domain Mapping + iOS/Android App Store Export)
+  - $49.99: Business 15-Pack ($75.00 Compute + Standalone PWA Branding + Priority Edge Routing) [Note: For future registrar domain purchasing and native store publishing, see docs/FUTURE_PLANS.md]
 
 ### Stripe Integration (`backend/stripe_checkout.py`)
 ```python

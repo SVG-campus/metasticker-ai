@@ -72,7 +72,7 @@ def verify_voucher_code(code: str) -> dict:
             "Monad Low-Rank LoRA Quantization",
             "100% Benchmark SOTA Guarantee",
             "One-Click Vercel / PWA Deployment",
-            "iOS & Android App Store CLI Export"
+            "Instant Mobile Safari & Chrome PWA (Zero App Store Fees)"
         ]
     }
 

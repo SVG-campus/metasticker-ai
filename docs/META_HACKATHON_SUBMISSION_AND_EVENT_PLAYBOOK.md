@@ -99,6 +99,7 @@ We asked: *What if a collectible laptop sticker was an autonomous software appli
 
 ### 🔮 What's Next for MetaSticker AI
 - Rollout of our physical developer compute voucher drop across collegiate hackathons (CalHacks, TreeHacks, HackMIT).
+- Automated custom domain purchasing via Cloudflare Registrar APIs and enterprise App Store publishing onboarding (see complete architecture in `docs/FUTURE_PLANS.md`).
 - Expansion of retail consignment partnerships into comic stores, anime conventions, and retail chains.
 ```
 

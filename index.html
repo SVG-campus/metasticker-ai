@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MetaSticker AI — The Physical Gift Card for Custom AI & Micro-Apps</title>
+  <meta name="description" content="Buy a sticker pack at retail, scratch the QR code, prompt in plain English, and deploy a custom fine-tuned Meta LLM micro-app in 60 seconds. Powered by Meta Muse Code and AxiomWeave Monad.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient Holographic Glow Background -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Top Navigation Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="logo-icon">
+          <span class="logo-foil">✦</span>
+        </div>
+        <div class="logo-text">
+          <span class="logo-title">MetaSticker<span class="accent-text">.AI</span></span>
+          <span class="badge badge-meta">Meta Hackathon 2026</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#retail-showcase" class="nav-link">Retail Packaging</a>
+        <a href="#tech-specs" class="nav-link">Architecture</a>
+        <button id="btn-demo-wallet" class="btn btn-secondary">
+          <span class="crypto-icon">💳</span>
+          <span id="wallet-balance">$5.00 USD Balance</span>
+        </button>
+        <a href="#studio" class="btn btn-primary pulse-btn">Launch Studio</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="main-content">
+    <section class="hero-section">
+      <div class="hero-badge-row">
+        <span class="pill-tag">🔥 Meta Global AI Developer Hackathon</span>
+        <span class="pill-tag pill-partner">Powered by Muse Code & Llama 3.3</span>
+        <span class="pill-tag pill-retail">Target & Walmart Gift Card Aisle Ready</span>
+      </div>
+      <h1 class="hero-headline">
+        Scratch. Scan. <br>
+        <span class="gradient-text holographic-text">Deploy Superintelligence.</span>
+      </h1>
+      <p class="hero-subhead">
+        The physical gift card for custom AI. Buy a sticker at retail, scratch the holographic cryptographic seal, prompt in plain English, and let <strong>Meta Muse Code</strong> + <strong>AxiomWeave Monad</strong> build, fine-tune, and deploy your custom web app in 60 seconds.
+      </p>
+
+      <!-- Interactive 3D Holographic Sticker Visualizer & Scratch-Off -->
+      <div class="sticker-interactive-stage">
+        <div class="card-perspective-wrapper" id="card-wrapper">
+          <div class="holographic-card" id="holo-card">
+            <div class="foil-reflection" id="foil-reflection"></div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <span class="card-meta-brand">✦ METASTICKER // COMPUTE PACK</span>
+                <span class="card-value-badge">$5.00 COMPUTE</span>
+              </div>
+              <div class="card-centerpiece">
+                <div class="card-symbol">MUSE</div>
+                <div class="card-subtitle">Autonomous Micro-Agent Voucher</div>
+              </div>
+              <div class="scratch-zone-container">
+                <div class="qr-under-layer">
+                  <div class="qr-code-box" id="qr-box">
+                    <!-- SVG QR Code Representation -->
+                    <svg viewBox="0 0 100 100" class="qr-svg">
+                      <rect width="100" height="100" fill="#ffffff"/>
+                      <path d="M10,10 h30 v30 h-30 z M15,15 v20 h20 v-20 z M22,22 h6 v6 h-6 z" fill="#000000"/>
+                      <path d="M60,10 h30 v30 h-30 z M65,15 v20 h20 v-20 z M72,22 h6 v6 h-6 z" fill="#000000"/>
+                      <path d="M10,60 h30 v30 h-30 z M15,65 v20 h20 v-20 z M22,72 h6 v6 h-6 z" fill="#000000"/>
+                      <circle cx="50" cy="50" r="10" fill="#0066ff"/>
+                      <rect x="45" y="10" width="10" height="25" fill="#000000"/>
+                      <rect x="45" y="65" width="10" height="25" fill="#000000"/>
+                      <rect x="10" y="45" width="25" height="10" fill="#000000"/>
+                      <rect x="65" y="45" width="25" height="10" fill="#000000"/>
+                      <rect x="60" y="60" width="15" height="15" fill="#000000"/>
+                      <rect x="80" y="80" width="10" height="10" fill="#000000"/>
+                    </svg>
+                  </div>
+                  <div class="secret-key-text">
+                    <span class="key-label">BURNER KEY:</span>
+                    <span class="key-code" id="secret-key-display">MUSE-TARGET-8842-APEX</span>
+                  </div>
+                </div>
+                <canvas id="scratch-canvas" width="280" height="130" class="scratch-canvas"></canvas>
+              </div>
+              <div class="card-footer-row">
+                <span class="footer-chip">NFC + ERC-8088 PAP</span>
+                <span class="footer-cta" id="scratch-hint">Scratch or Click Foil to Redeem</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sticker-controls">
+          <button id="btn-scratch-auto" class="btn btn-outline">
+            <span>✨ Reveal Code Automatically</span>
+          </button>
+          <button id="btn-redeem-key" class="btn btn-glow">
+            <span>🚀 Redeem & Load into Studio</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hackathon Project Theme Selector & Studio -->
+    <section class="studio-section" id="studio">
+      <div class="section-header">
+        <h2 class="section-title">The Meta Muse Code Generation Studio</h2>
+        <p class="section-desc">Choose a hackathon project theme, specify your desired micro-agent, and let the agentic pipeline code and deploy your application live.</p>
+      </div>
+
+      <!-- Theme Switcher -->
+      <div class="theme-switch-container">
+        <button class="theme-btn active" id="tab-theme-1" data-theme="world">
+          <div class="theme-btn-title">Theme 1: Build for Your World</div>
+          <div class="theme-btn-sub">Local shops, clinics, creators, everyday personal workflows</div>
+        </button>
+        <button class="theme-btn" id="tab-theme-2" data-theme="frontier">
+          <div class="theme-btn-title">Theme 2: Push the Frontier</div>
+          <div class="theme-btn-sub">Physical systems, robotics telemetry, energy, hardware sensors</div>
+        </button>
+      </div>
+
+      <!-- Preset Prompt Cards -->
+      <div class="prompt-presets-grid" id="presets-container">
+        <!-- Injected via JavaScript based on active theme -->
+      </div>
+
+      <!-- Interactive Prompt Builder & Terminal -->
+      <div class="studio-workspace">
+        <div class="prompt-input-card">
+          <div class="input-header">
+            <span class="input-title">Natural Language Prompt Specification</span>
+            <span class="voucher-indicator" id="voucher-status">
+              <span class="dot dot-active"></span> Voucher Active ($5.00 Credit)
+            </span>
+          </div>
+          <textarea id="prompt-input" rows="4" class="prompt-textarea" placeholder="Describe the application you want Meta Muse Code to build for your sticker..."></textarea>
+          <div class="prompt-footer">
+            <div class="model-selection-row">
+              <span class="model-tag">🧠 Meta Muse Code</span>
+              <span class="model-tag">⚡ Llama 3.3 70B (Modal Endpoint)</span>
+              <span class="model-tag">💎 Monad LoRA Quantization</span>
+            </div>
+            <button id="btn-compile-deploy" class="btn btn-primary btn-generate">
+              <span class="btn-icon">⚡</span>
+              <span>Generate & Deploy Micro-App</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Real-Time Muse Code Agent Terminal & Synthesis Monitor -->
+        <div class="terminal-card" id="terminal-wrapper">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="t-dot red"></span>
+              <span class="t-dot yellow"></span>
+              <span class="t-dot green"></span>
+            </div>
+            <div class="terminal-title">meta_muse_agent_stream.log — Modal Serverless Worker</div>
+            <div class="terminal-status" id="agent-status-badge">STANDBY</div>
+          </div>
+          <div class="terminal-body" id="terminal-output">
+            <span class="terminal-line">[SYSTEM] AxiomWeave MetaSticker Core v1.0 Apex initialized.</span>
+            <span class="terminal-line">[SYSTEM] Connected to Meta Model API & Modal GPU cluster (RTX 4090 / H100).</span>
+            <span class="terminal-line">[READY] Scratch the card above and click 'Generate & Deploy Micro-App'.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Generated Application Sandbox Preview -->
+      <div class="preview-section" id="preview-section" style="display: none;">
+        <div class="preview-header">
+          <div class="preview-meta">
+            <span class="preview-badge">LIVE SANDBOX CONTAINER</span>
+            <span class="preview-url" id="preview-url-display">https://metasticker-app.vercel.app/preview</span>
+          </div>
+          <div class="preview-actions">
+            <button id="btn-open-new-tab" class="btn btn-sm btn-outline">Open in New Tab ↗</button>
+            <button id="btn-print-sticker" class="btn btn-sm btn-glow">Print Sticker Label 🖨️</button>
+          </div>
+        </div>
+        <div class="iframe-container">
+          <iframe id="app-sandbox-iframe" class="app-iframe" title="Generated Application Preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Retail Experience & Unit Economics Showcase -->
+    <section class="retail-section" id="retail-showcase">
+      <div class="section-header">
+        <h2 class="section-title">The Target & Walmart Retail Advantage</h2>
+        <p class="section-desc">How physical AI gift cards solve the distribution dilemma for the remaining 99% of humanity.</p>
+      </div>
+
+      <div class="retail-grid">
+        <div class="retail-card">
+          <div class="retail-icon">🛒</div>
+          <h3 class="retail-heading">Point of Sale Activation (POSA)</h3>
+          <p class="retail-text">Zero theft risk. Sticker packs sit inert on retail hooks next to Apple and Roblox gift cards. Cryptographic burner wallets activate only upon cashier checkout scan via standard Blackhawk Network / InComm protocols.</p>
+        </div>
+
+        <div class="retail-card">
+          <div class="retail-icon">📈</div>
+          <h3 class="retail-heading">Unbeatable Unit Economics</h3>
+          <p class="retail-text">Retail Price: <strong>$4.99</strong>. Physical packaging & NFC: <strong>$0.40</strong>. Serverless Meta LLM fine-tuning + Muse Code inference (via Monad sub-microsecond quantization): <strong>$1.50</strong>. Net Profit: <strong>$2.69 per pack (54% Margin)</strong>.</p>
+        </div>
+
+        <div class="retail-card">
+          <div class="retail-icon">📱</div>
+          <h3 class="retail-heading">Zero-Friction Physical Utility</h3>
+          <p class="retail-text">No command-line tools. No API keys. No credit card subscriptions. Small businesses slap their activated AI sticker directly on storefront windows, machinery, or delivery vans for instant customer interaction.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Architecture & Monad Verification Section -->
+    <section class="tech-section" id="tech-specs">
+      <div class="section-header">
+        <h2 class="section-title">Architectural Stack & Mathematical Rigor</h2>
+        <p class="section-desc">Autonomous code generation backed by Meta's newest foundation models and AxiomWeave's 23-discipline Monad engine.</p>
+      </div>
+
+      <div class="specs-grid">
+        <div class="spec-card">
+          <h4 class="spec-category">Meta Intelligence Layer</h4>
+          <ul class="spec-list">
+            <li><strong>Meta Muse Code:</strong> Autonomous coding agent synthesizing full-stack templates.</li>
+            <li><strong>Meta Llama 3.3 70B:</strong> High-precision reasoning on Baseten and Modal.</li>
+            <li><strong>SAM 3.1 & Muse Image:</strong> Visual branding and multimodal UI asset generation.</li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <h4 class="spec-category">AxiomWeave Monad Engine</h4>
+          <ul class="spec-list">
+            <li><strong>Babai Lattice LoRA Quantization:</strong> Squeezes fine-tuning into seconds with zero saddle jamming.</li>
+            <li><strong>Grothendieck Topos Sheaf $H^1 = 0$:</strong> Guarantees conflict-free code synthesis across HTML, CSS, and JS.</li>
+            <li><strong>Singular Viscosity Barrier:</strong> Hard $0.00 idle spend contract with automated container termination.</li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <h4 class="spec-category">Deployment & Cloud Infrastructure</h4>
+          <ul class="spec-list">
+            <li><strong>Modal Endpoints:</strong> $100 serverless GPU compute for on-demand training.</li>
+            <li><strong>Vercel Edge Network:</strong> Instant sub-second global deployment.</li>
+            <li><strong>AWS Agent Toolkit:</strong> Persistent telemetry, S3 physical label asset storage, and zero-leak laptop footprint.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="footer-logo">MetaSticker AI</span>
+        <span class="footer-copy">Built for the Meta Global AI Developer Hackathon (Cerebral Valley) — October 2026</span>
+      </div>
+      <div class="footer-meta">
+        <span class="footer-tag">AxiomWeave Omni-Topological Monad Engine</span>
+        <span class="footer-tag">MIT License</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

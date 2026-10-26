@@ -15,6 +15,7 @@ from email.mime.multipart import MIMEMultipart
 from email.header import decode_header
 import json
 import re
+from monad_brand_conversational_engine import process_inbound_message
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
@@ -199,17 +200,15 @@ def check_inbox_and_process(max_recent=25, dry_run=False):
             if GMAIL_USER.lower() in from_hdr.lower() or "metasticker ai lead bot" in from_hdr.lower():
                 continue
 
-            intent = analyze_intent(from_hdr, subject_hdr, body_text)
-            if intent["is_positive"]:
-                print(f"[POSITIVE LEAD DETECTED] From: {from_hdr} | Subject: {subject_hdr} | Signals: {intent['matched_signals']}")
+            # Process message through Monad Conversational & Handover Engine
+            proc_res = process_inbound_message(from_hdr, subject_hdr, body_text, dry_run=dry_run)
+            if proc_res.get("status") in ["HANDOVER_TRIGGERED", "AUTONOMOUS_REPLY_SENT"]:
                 processed_leads.append({
                     "from": from_hdr,
                     "subject": subject_hdr,
                     "date": date_hdr,
-                    "signals": intent["matched_signals"]
+                    "engine_status": proc_res.get("status")
                 })
-                if not dry_run:
-                    forward_positive_lead(from_hdr, subject_hdr, body_text[:2000], intent["matched_signals"])
 
         mail.close()
         mail.logout()

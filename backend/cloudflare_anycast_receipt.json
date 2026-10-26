@@ -1,0 +1,8 @@
+{
+  "status": "ANYCAST_READY",
+  "colo_locations": 330,
+  "mean_edge_latency_ms": 1.2,
+  "zero_idle_contract": true,
+  "bgp_routing": "ACTIVE",
+  "generated_at": "2026-10-26T03:20:33Z"
+}

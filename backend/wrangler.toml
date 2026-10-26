@@ -1,0 +1,12 @@
+name = "metasticker-anycast-router"
+main = "cloudflare_anycast_edge_router.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+ENVIRONMENT = "production"
+MAX_EDGE_CACHE_TTL = 86400
+
+# Sub-10ms BGP Anycast Ingress across 330+ edge locations worldwide
+[observability]
+enabled = true
+head_sampling_rate = 1

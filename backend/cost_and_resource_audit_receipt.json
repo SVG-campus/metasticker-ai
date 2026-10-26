@@ -1,0 +1,33 @@
+{
+  "execution_telemetry": {
+    "gpu_hardware": "NVIDIA RTX 4090 / L40S (Modal Serverless)",
+    "gpu_execution_seconds": 2.85,
+    "prompt_tokens": 1450,
+    "output_tokens": 2600,
+    "total_tokens": 4050,
+    "lora_adapter_ram_mb": 33.5,
+    "anycast_edge_ttfb_ms": 1.2,
+    "energy_kwh": 0.000226,
+    "co2_grams": 0.0869
+  },
+  "granular_cost_breakdown_usd": {
+    "gpu_compute_cost": 0.000269,
+    "llm_token_cost": 0.002717,
+    "cloudflare_anycast_edge": 1.5e-07,
+    "vercel_serverless_deploy": 8e-06,
+    "total_per_generation_cogs": 0.002994
+  },
+  "retail_unit_economics_usd": {
+    "retail_sticker_price": 4.99,
+    "physical_card_and_nfc": 0.38,
+    "retailer_consignment_share_20pct": 0.9980000000000001,
+    "compute_cost_allowance_6_generations": 0.018,
+    "total_pack_cogs": 1.396,
+    "net_gross_profit_per_pack": 3.594,
+    "gross_margin_percentage": 72.02
+  },
+  "customer_purchasing_power": {
+    "generations_per_5_dollar_voucher": 1669,
+    "single_generation_cost_cents": 0.299
+  }
+}

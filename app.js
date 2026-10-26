@@ -1317,3 +1317,61 @@ function initFloatingVideoSticker() {
     }
   });
 }
+
+// ==============================================================================
+// 16. Brand Pitch Deck Slide Carousel & Sponsorship ROI Calculator
+// ==============================================================================
+function initBrandPitchDeckAndROI() {
+  let currentSlide = 1;
+  const totalSlides = 5;
+  const slides = document.querySelectorAll(".pitch-slide");
+  const dots = document.querySelectorAll(".s-dot");
+  const prevBtn = document.getElementById("btn-prev-slide");
+  const nextBtn = document.getElementById("btn-next-slide");
+
+  function showSlide(idx) {
+    if (idx < 1) idx = totalSlides;
+    if (idx > totalSlides) idx = 1;
+    currentSlide = idx;
+
+    slides.forEach(s => {
+      s.style.display = parseInt(s.dataset.slide) === currentSlide ? "block" : "none";
+    });
+    dots.forEach(d => {
+      d.classList.toggle("active", parseInt(d.dataset.s) === currentSlide);
+    });
+  }
+
+  if (prevBtn) prevBtn.addEventListener("click", () => showSlide(currentSlide - 1));
+  if (nextBtn) nextBtn.addEventListener("click", () => showSlide(currentSlide + 1));
+  dots.forEach(d => d.addEventListener("click", () => showSlide(parseInt(d.dataset.s))));
+
+  // ROI Calculator Slider Logic
+  const slider = document.getElementById("roi-budget-slider");
+  const budgetDisp = document.getElementById("calc-budget-display");
+  const resStickers = document.getElementById("res-stickers");
+  const resImpressions = document.getElementById("res-impressions");
+  const resCpm = document.getElementById("res-cpm");
+  const resLeads = document.getElementById("res-leads");
+
+  if (slider && budgetDisp) {
+    slider.addEventListener("input", (e) => {
+      const val = parseInt(e.target.value);
+      budgetDisp.innerText = `$${val.toLocaleString()} USD`;
+      
+      const stickers = Math.floor(val / 2.0);
+      const impressions = stickers * 45000;
+      const cpm = ((val / impressions) * 1000).toFixed(3);
+      const leads = Math.floor(val / 0.25);
+
+      if (resStickers) resStickers.innerText = `${stickers.toLocaleString()} Packs`;
+      if (resImpressions) resImpressions.innerText = impressions.toLocaleString();
+      if (resCpm) resCpm.innerText = `$${cpm}`;
+      if (resLeads) resLeads.innerText = `${leads.toLocaleString()} Leads`;
+    });
+  }
+}
+
+// Global initialization of brand modules
+initFloatingVideoSticker();
+initBrandPitchDeckAndROI();

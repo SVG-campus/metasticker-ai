@@ -38,6 +38,8 @@ load_env()
 
 GMAIL_USER = os.getenv("GMAIL_USER", "prefrontalcorporate@gmail.com")
 GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD", "")
+RESEND_API_KEY = os.getenv("RESEND_API_KEY", "")
+RESEND_FROM = os.getenv("RESEND_FROM", "onboarding@resend.dev")
 
 # Outreach Email Templates
 OUTREACH_TEMPLATES = {
@@ -134,14 +136,39 @@ def send_outreach_email(to_email: str, recipient_name: str, brand_name: str, tem
         event_name=brand_name
     )
 
-    if dry_run or not GMAIL_APP_PASSWORD:
+    if dry_run or (not GMAIL_APP_PASSWORD and not RESEND_API_KEY):
+        provider = "Resend (RESEND_API_KEY)" if RESEND_API_KEY else "Gmail (GMAIL_APP_PASSWORD)"
         print(f"[DRY RUN / STAGING] Prepared outreach email to: {to_email}")
-        print(f"  From:    {GMAIL_USER}")
+        print(f"  Sender:  {GMAIL_USER if not RESEND_API_KEY else RESEND_FROM}")
         print(f"  Subject: {subject}")
-        print(f"  Status:  READY TO SEND (Awaiting GMAIL_APP_PASSWORD in scratch/.env)")
+        print(f"  Status:  READY TO SEND (Awaiting GMAIL_APP_PASSWORD or RESEND_API_KEY in scratch/.env)")
         return {"status": "DRY_RUN_READY", "to": to_email, "subject": subject}
 
-    # Live Dispatch via Gmail SMTP (TLS 587)
+    # Dispatch via Resend REST API if configured
+    if RESEND_API_KEY:
+        import urllib.request
+        url = "https://api.resend.com/emails"
+        headers = {
+            "Authorization": f"Bearer {RESEND_API_KEY}",
+            "Content-Type": "application/json"
+        }
+        payload = {
+            "from": RESEND_FROM,
+            "to": [to_email],
+            "subject": subject,
+            "html": html_content
+        }
+        try:
+            req = urllib.request.Request(url, data=json.dumps(payload).encode("utf-8"), headers=headers, method="POST")
+            with urllib.request.urlopen(req) as resp:
+                result = json.loads(resp.read().decode("utf-8"))
+            print(f"[SUCCESS] Dispatched live email to {to_email} via Resend API! ID: {result.get('id')}")
+            return {"status": "SENT", "provider": "resend", "id": result.get("id"), "to": to_email}
+        except Exception as e:
+            print(f"[ERROR] Failed to send email via Resend API: {e}")
+            return {"status": "FAILED", "provider": "resend", "error": str(e)}
+
+    # Dispatch via Gmail SMTP (TLS 587)
     msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
     msg["From"] = f"MetaSticker AI <{GMAIL_USER}>"
@@ -153,11 +180,11 @@ def send_outreach_email(to_email: str, recipient_name: str, brand_name: str, tem
             server.starttls()
             server.login(GMAIL_USER, GMAIL_APP_PASSWORD)
             server.sendmail(GMAIL_USER, to_email, msg.as_string())
-        print(f"[SUCCESS] Dispatched live email to {to_email} via {GMAIL_USER}!")
-        return {"status": "SENT", "to": to_email, "timestamp": time.time()}
+        print(f"[SUCCESS] Dispatched live email to {to_email} via Gmail {GMAIL_USER}!")
+        return {"status": "SENT", "provider": "gmail_smtp", "to": to_email, "timestamp": time.time()}
     except Exception as e:
-        print(f"[ERROR] Failed to send email via SMTP: {e}")
-        return {"status": "FAILED", "error": str(e)}
+        print(f"[ERROR] Failed to send email via Gmail SMTP: {e}")
+        return {"status": "FAILED", "provider": "gmail_smtp", "error": str(e)}
 
 def check_incoming_inbox(max_messages=10):
     """Connects to prefrontalcorporate@gmail.com via IMAP and reads recent responses."""

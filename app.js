@@ -531,6 +531,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initLiveGauntletRunner();
   initDualQrSwitcher();
   initGrowthHub();
+  initFloatingVideoSticker();
 });
 
 // ==============================================================================
@@ -1294,4 +1295,25 @@ function initGrowthHub() {
       appendTerminalLine(`[STRIPE] Top-up of $${selectedCredit.amount.toFixed(2)} credited to account.`, "success");
     });
   }
+}
+
+// ==============================================================================
+// 15. Interactive In-Stream Floating Video Overlay Sticker
+// ==============================================================================
+function initFloatingVideoSticker() {
+  const sticker = document.getElementById("floating-sticker");
+  const msg = document.getElementById("video-overlay-msg");
+  const hudBalance = document.getElementById("hud-balance");
+  const walletBalance = document.getElementById("wallet-balance");
+
+  if (!sticker || !msg) return;
+
+  sticker.addEventListener("click", () => {
+    msg.style.display = msg.style.display === "none" ? "block" : "none";
+    if (msg.style.display === "block") {
+      appendTerminalLine("[BRAND SPONSOR] Red Bull Creator overlay clicked! +$2.00 compute credits added to viewer wallet.", "success");
+      if (hudBalance) hudBalance.innerText = "$7.00 Left (+$2.00 Sponsor)";
+      if (walletBalance) walletBalance.innerText = "$7.00 Balance";
+    }
+  });
 }

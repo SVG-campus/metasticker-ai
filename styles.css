@@ -1959,3 +1959,178 @@ body {
   border-color: var(--accent-gold);
   color: #fff;
 }
+
+/* ==============================================================================
+   Brand IP Licensing & Video Overlay Showcase
+   ============================================================================== */
+
+.brand-section {
+  padding: 5rem 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.brand-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.video-simulator-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.video-screen {
+  height: 280px;
+  background: linear-gradient(135deg, #090c14, #121828);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.video-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(239, 68, 68, 0.25);
+  color: #ef4444;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.floating-video-sticker {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  background: linear-gradient(135deg, rgba(0, 210, 255, 0.9), rgba(157, 78, 221, 0.95));
+  border: 2px solid #fff;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(0, 210, 255, 0.6);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+
+.floating-video-sticker:hover {
+  transform: scale(1.08) translateY(-3px);
+  box-shadow: 0 0 35px rgba(255, 0, 127, 0.8);
+}
+
+.pulse-sticker {
+  animation: pulse-badge 2s infinite ease-in-out;
+}
+
+@keyframes pulse-badge {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+.f-sticker-foil {
+  font-size: 1.5rem;
+  color: #ffbe0b;
+  filter: drop-shadow(0 0 6px rgba(255, 190, 11, 0.8));
+}
+
+.f-sticker-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.f-sticker-text strong {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.f-sticker-text span {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.video-overlay-msg {
+  position: absolute;
+  background: rgba(10, 14, 22, 0.95);
+  border: 1px solid var(--emerald-success);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.5rem;
+  font-size: 0.85rem;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 245, 155, 0.4);
+  animation: modal-pop 0.3s ease;
+  z-index: 20;
+}
+
+.video-overlay-msg code {
+  color: var(--emerald-success);
+  font-family: var(--font-mono);
+  background: rgba(0, 245, 155, 0.15);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}
+
+.video-caption {
+  padding: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.brand-editions-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.edition-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+}
+
+.edition-row {
+  display: flex;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.edition-icon {
+  font-size: 1.6rem;
+}
+
+.edition-row strong {
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+.edition-row p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.outreach-badge-row {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}

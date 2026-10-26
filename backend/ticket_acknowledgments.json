@@ -1,0 +1,20 @@
+[
+  {
+    "brand": "GitHub",
+    "sender": "Support <partnerships@github.com>",
+    "subject": "[Request received] GitHub x MetaSticker AI: Collectible Physical Octocat Stickers with Instant Llama-3.3 Micro-Apps",
+    "ticket_id": "170891",
+    "timestamp": "2026-10-25 22:21:07",
+    "status": "TICKET_OPEN",
+    "note": "Partnership proposal logged in GitHub enterprise support system. Pending team review."
+  },
+  {
+    "brand": "Hugging Face",
+    "sender": "Hugging Face <api-enterprise@huggingface.co>",
+    "subject": "[Request received]",
+    "ticket_id": "48184",
+    "timestamp": "2026-10-25 22:24:30",
+    "status": "TICKET_OPEN",
+    "note": "Partnership proposal logged in Hugging Face enterprise support system. Pending team review."
+  }
+]

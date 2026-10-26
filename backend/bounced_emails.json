@@ -1,0 +1,38 @@
+[
+  {
+    "recipient": "partners@cerebralvalley.ai",
+    "bounce_server": "mailer-daemon@googlemail.com",
+    "subject": "Delivery Status Notification (Failure)",
+    "error_code": "550",
+    "reason": "Address not found / NoSuchUser",
+    "timestamp": "2026-10-25 22:20:37",
+    "resolution": "Re-dispatched to verified active contacts: support@cerebralvalley.ai and riley@newcomer.co (Delivered, no bounce)."
+  },
+  {
+    "recipient": "dev-partnerships@discord.com",
+    "bounce_server": "mailer-daemon@googlemail.com",
+    "subject": "Delivery Status Notification (Failure)",
+    "error_code": "550",
+    "reason": "Address not found / NoSuchUser",
+    "timestamp": "2026-10-25 22:20:43",
+    "resolution": "Discord has no public cold email intake. Partner form submission required via discord.com/company-information."
+  },
+  {
+    "recipient": "brand@liquiddeath.com",
+    "bounce_server": "mailer-daemon@googlemail.com",
+    "subject": "Delivery Status Notification (Failure)",
+    "error_code": "550 5.1.1",
+    "reason": "The email account that you tried to reach does not exist",
+    "timestamp": "2026-10-25 22:20:54",
+    "resolution": "Re-dispatched to verified active contact: info@liquiddeath.com (Delivered, no bounce)."
+  },
+  {
+    "recipient": "partnerships@redbull.com",
+    "bounce_server": "postmaster@ndr.redbull.com",
+    "subject": "Undeliverable: EXT: Partnership: Custom Holographic Red Bull Stickers & Interactive Streamer Overlays",
+    "error_code": "550 5.1.10",
+    "reason": "RESOLVER.ADR.RecipientNotFound; Recipient not found by SMTP address lookup",
+    "timestamp": "2026-10-25 22:24:07",
+    "resolution": "Red Bull blocks cold emails on generic aliases. Official partnership requests require intake via redbull.com/us-en/help or redbullmediahouse.com."
+  }
+]

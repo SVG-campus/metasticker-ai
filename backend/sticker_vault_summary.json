@@ -1,0 +1,50 @@
+{
+  "timestamp": 1792983900.993171,
+  "event": "Meta Global AI Developer Hackathon (Cerebral Valley)",
+  "total_participant_vouchers": 20000,
+  "participant_credit_each_usd": 5.0,
+  "total_participant_pool_usd": 100000.0,
+  "total_judge_vouchers": 500,
+  "judge_credit_each_usd": 100.0,
+  "total_judge_pool_usd": 50000.0,
+  "total_student_vouchers": 1000,
+  "student_credit_each_usd": 10.0,
+  "total_student_pool_usd": 10000.0,
+  "verification_protocol": "HMAC-SHA256 Deterministic Constant-Time Verification (O(1) memory footprint)",
+  "sample_participant_keys": [
+    "META20K-DE51-599E-B5AB",
+    "META20K-BF46-053B-30C2",
+    "META20K-99AB-81AD-6ED9",
+    "META20K-9363-609F-FC81",
+    "META20K-B368-4C59-75C8",
+    "META20K-F59F-29E0-BED2",
+    "META20K-C081-C47C-EACF",
+    "META20K-BD35-A1C5-C1D9",
+    "META20K-8C95-C0A2-56B3",
+    "META20K-A60C-D436-8AFE"
+  ],
+  "sample_judge_keys": [
+    "JUDGE-AED0-5EAE-EAA9",
+    "JUDGE-75E8-40E0-72F1",
+    "JUDGE-4C10-3820-C2B4",
+    "JUDGE-EC9E-A415-78A2",
+    "JUDGE-6FF1-1B66-1652",
+    "JUDGE-0412-3890-E38A",
+    "JUDGE-6BA0-19BE-5969",
+    "JUDGE-CD12-CFFB-3CB8",
+    "JUDGE-6D3D-73D1-3F26",
+    "JUDGE-1505-9DC9-1A13"
+  ],
+  "sample_student_keys": [
+    "STUDENT-43EA-7917-0750",
+    "STUDENT-DC47-9239-3F9E",
+    "STUDENT-EE65-CBB5-670E",
+    "STUDENT-FF06-261C-D041",
+    "STUDENT-3862-B332-9037",
+    "STUDENT-3CDA-0540-35E2",
+    "STUDENT-E5B0-1966-BAF4",
+    "STUDENT-1C04-969F-FE81",
+    "STUDENT-DDC5-9CDC-7831",
+    "STUDENT-7FF8-EB8C-527C"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "version": "1.0-Apex",
+  "max_touches": 3,
+  "touch_2_delay_hours": 72,
+  "touch_3_delay_hours": 144,
+  "cooling_days_post_exhaustion": 60,
+  "policy_rule": "VALUE_ADD_PROGRESSIVE_DISCLOSURE"
+}

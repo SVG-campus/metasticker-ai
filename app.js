@@ -545,6 +545,8 @@ function initCardPhysics() {
   if (!cardWrapper || !holoCard) return;
 
   cardWrapper.addEventListener("mousemove", (e) => {
+    if (holoCard.classList.contains("peeled")) return; // Don't interrupt 3D peel state!
+
     const rect = cardWrapper.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -555,7 +557,7 @@ function initCardPhysics() {
     const rotateX = ((y - centerY) / centerY) * -12;
     const rotateY = ((x - centerX) / centerX) * 12;
 
-    holoCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    holoCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
 
     if (foilReflection) {
       const px = (x / rect.width) * 100;
@@ -566,7 +568,8 @@ function initCardPhysics() {
   });
 
   cardWrapper.addEventListener("mouseleave", () => {
-    holoCard.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
+    if (holoCard.classList.contains("peeled")) return;
+    holoCard.style.transform = "";
     if (foilReflection) {
       foilReflection.style.opacity = "0.7";
       foilReflection.style.backgroundPosition = "50% 50%";
@@ -671,6 +674,8 @@ function initTierPills() {
   const cardLabel = document.getElementById("card-tier-label");
   const cardValue = document.getElementById("card-value-display");
   const keyDisplay = document.getElementById("secret-key-display");
+  const waxyKey = document.getElementById("waxy-key-display");
+  const waxyCredits = document.getElementById("waxy-credits-display");
   const walletBalance = document.getElementById("wallet-balance");
   const voucherStatus = document.getElementById("voucher-status");
 
@@ -691,6 +696,8 @@ function initTierPills() {
 
       if (cardValue) cardValue.innerText = `$${val} COMPUTE`;
       if (keyDisplay) keyDisplay.innerText = code;
+      if (waxyKey) waxyKey.innerText = code;
+      if (waxyCredits) waxyCredits.innerText = `$${val} CLOUD COMPUTE CREDITS`;
       if (walletBalance) walletBalance.innerText = `$${val} Balance`;
       if (voucherStatus) {
         voucherStatus.innerHTML = `<span class="dot dot-active"></span> Voucher Active ($${val} Credit)`;
@@ -1114,6 +1121,7 @@ function initDualQrSwitcher() {
   const btnBack = document.getElementById("btn-side-back");
   const btnPeel = document.getElementById("btn-side-peel");
   const holoCard = document.getElementById("holo-card");
+  const peelTab = document.getElementById("peel-corner-tab");
   const cardTierLabel = document.getElementById("card-tier-label");
   const cardSubtitle = document.querySelector(".card-subtitle");
   const keyLabel = document.querySelector(".key-label");
@@ -1122,39 +1130,41 @@ function initDualQrSwitcher() {
 
   if (!btnFront || !btnBack) return;
 
-  btnFront.addEventListener("click", () => {
-    btnFront.classList.add("active");
-    btnBack.classList.remove("active");
-    if (holoCard) holoCard.classList.remove("peeled");
-    if (cardTierLabel) cardTierLabel.innerText = "✦ PUBLIC DIE-CUT VINYL STICKER (FRONT)";
-    if (cardSubtitle) cardSubtitle.innerText = "Public App Portal — Scan to Visit & Order";
-    if (keyLabel) keyLabel.innerText = "PUBLIC APP PORTAL LINK:";
-    if (scratchHint) scratchHint.innerText = "Stick on window/counter so anyone can access!";
-    if (scratchCanvas) scratchCanvas.style.display = "none";
-    appendTerminalLine("[MODE] Showing Sticker Front: Public QR code for viral sharing.", "info");
-  });
+  function togglePeel(forceState) {
+    if (!holoCard) return;
+    const shouldPeel = forceState !== undefined ? forceState : !holoCard.classList.contains("peeled");
+    
+    // Clear inline transform so CSS 3D peel animation triggers cleanly without conflict
+    holoCard.style.transform = "";
 
-  btnBack.addEventListener("click", () => {
-    btnBack.classList.add("active");
-    btnFront.classList.remove("active");
-    if (holoCard) holoCard.classList.remove("peeled");
-    if (cardTierLabel) cardTierLabel.innerText = "🔒 SECRET WAXY BACKING PAPER (BEHIND STICKER)";
-    if (cardSubtitle) cardSubtitle.innerText = "Owner Compute Credits Voucher";
-    if (keyLabel) keyLabel.innerText = "CRYPTOGRAPHIC PRIVATE KEY:";
-    if (scratchHint) scratchHint.innerText = "Only visible when peeled! Keep credits private.";
-    appendTerminalLine("[MODE] Showing Sticker Backing Paper: Secret owner credits QR.", "warn");
-  });
+    if (shouldPeel) {
+      holoCard.classList.add("peeled");
+      if (btnPeel) btnPeel.innerText = "🔄 Re-Attach Sticker";
+      btnBack.classList.add("active");
+      btnFront.classList.remove("active");
+      if (cardTierLabel) cardTierLabel.innerText = "🔒 SECRET WAXY BACKING PAPER (BEHIND STICKER)";
+      if (cardSubtitle) cardSubtitle.innerText = "Private Owner Compute Credits Voucher";
+      if (scratchHint) scratchHint.innerText = "Private voucher code visible below!";
+      appendTerminalLine("[PEEL] Sticker peeled off backing paper! Private compute credits revealed underneath.", "success");
+    } else {
+      holoCard.classList.remove("peeled");
+      if (btnPeel) btnPeel.innerText = "🖐️ Peel Sticker Animation";
+      btnFront.classList.add("active");
+      btnBack.classList.remove("active");
+      if (cardTierLabel) cardTierLabel.innerText = "✦ PUBLIC DIE-CUT VINYL STICKER (FRONT)";
+      if (cardSubtitle) cardSubtitle.innerText = "Public App Portal — Stick on Laptop & Share";
+      if (scratchHint) scratchHint.innerText = "Peel or scratch to reveal private compute key";
+      appendTerminalLine("[ATTACH] Sticker re-attached to release liner.", "info");
+    }
+  }
 
-  if (btnPeel) {
-    btnPeel.addEventListener("click", () => {
-      if (holoCard) {
-        holoCard.classList.toggle("peeled");
-        const isPeeled = holoCard.classList.contains("peeled");
-        btnPeel.innerText = isPeeled ? "🔄 Re-Attach Sticker" : "🖐️ Peel Sticker Animation";
-        appendTerminalLine(isPeeled 
-          ? "[PEEL] Sticker peeled off backing paper! Private compute credits revealed underneath." 
-          : "[ATTACH] Sticker re-attached to release liner.", "success");
-      }
+  btnFront.addEventListener("click", () => togglePeel(false));
+  btnBack.addEventListener("click", () => togglePeel(true));
+  if (btnPeel) btnPeel.addEventListener("click", () => togglePeel());
+  if (peelTab) {
+    peelTab.addEventListener("click", (e) => {
+      e.stopPropagation();
+      togglePeel();
     });
   }
 }

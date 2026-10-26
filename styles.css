@@ -347,12 +347,143 @@ body {
   position: relative;
   width: 380px;
   height: 520px;
+  perspective: 1500px;
   transform-style: preserve-3d;
   transition: transform 0.1s ease-out;
 }
 
-.holographic-card {
+/* Authentic Silicone Waxy Backing Card (Release Liner) */
+.waxy-backing-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-lg);
+  background: #f1f5f9;
+  color: #0f172a;
+  border: 2px dashed #94a3b8;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.1), 0 20px 40px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.8rem;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.waxy-grid-pattern {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: linear-gradient(rgba(148, 163, 184, 0.25) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(148, 163, 184, 0.25) 1px, transparent 1px);
+  background-size: 16px 16px;
+  pointer-events: none;
+}
+
+.waxy-content {
   position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.waxy-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #475569;
+  border-bottom: 1px solid #cbd5e1;
+  padding-bottom: 0.6rem;
+}
+
+.waxy-badge {
+  background: #0284c7;
+  color: #fff;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  letter-spacing: 0.5px;
+}
+
+.waxy-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.2rem;
+  margin: auto 0;
+}
+
+.waxy-qr-box {
+  width: 140px;
+  height: 140px;
+  background: #fff;
+  border: 2px solid #0f172a;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.waxy-info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.waxy-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #0369a1;
+  letter-spacing: 1px;
+}
+
+.waxy-key-display {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #0f172a;
+  background: #e2e8f0;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  user-select: all;
+}
+
+.waxy-credits {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #15803d;
+}
+
+.waxy-instructions {
+  font-size: 0.7rem;
+  color: #64748b;
+  max-width: 260px;
+}
+
+.waxy-footer-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: #64748b;
+  border-top: 1px solid #cbd5e1;
+  padding-top: 0.6rem;
+}
+
+/* Peelable Glossy Holographic Vinyl Sticker (On Top) */
+.holographic-card {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border-radius: var(--radius-lg);
@@ -364,6 +495,52 @@ body {
   flex-direction: column;
   padding: 1.8rem;
   cursor: grab;
+  transform-origin: bottom left;
+  transition: transform 0.75s cubic-bezier(0.2, 0.9, 0.2, 1), box-shadow 0.75s ease, filter 0.75s ease;
+  z-index: 2;
+}
+
+/* 3D Realistic Physical Sticker Peel Transformation */
+.holographic-card.peeled {
+  transform: rotate3d(1, 1, 0, 52deg) translate3d(-40px, -45px, 85px) skew(-8deg);
+  box-shadow: 45px 60px 80px rgba(0, 0, 0, 0.9), -5px -5px 25px rgba(0, 210, 255, 0.35);
+  border-color: rgba(0, 210, 255, 0.6);
+  filter: brightness(1.08);
+}
+
+/* Interactive Peel Corner Tab */
+.peel-corner-tab {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, transparent 50%, rgba(0, 210, 255, 0.4) 50%, rgba(0, 210, 255, 0.9) 100%);
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 6px 6px 0 0;
+  transition: all 0.3s ease;
+  box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.5);
+  border-top-right-radius: var(--radius-lg);
+}
+
+.peel-corner-tab:hover {
+  width: 65px;
+  height: 65px;
+  background: linear-gradient(135deg, transparent 50%, rgba(0, 245, 155, 0.5) 50%, rgba(0, 245, 155, 1) 100%);
+  transform: scale(1.05);
+}
+
+.peel-corner-tab span {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: #000;
+  transform: rotate(45deg);
+  display: block;
 }
 
 .holographic-card:active {

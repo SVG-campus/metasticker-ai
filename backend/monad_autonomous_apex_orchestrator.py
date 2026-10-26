@@ -27,6 +27,7 @@ import datetime
 import random
 import imaplib
 import smtplib
+import email
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.header import decode_header

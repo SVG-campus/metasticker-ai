@@ -941,19 +941,19 @@ function initMiningModal() {
 }
 
 // ==============================================================================
-// 10. App Store CLI Export Pipeline
+// 10. Instant Mobile Web PWA Pipeline
 // ==============================================================================
 function initExportCli() {
   const exportBtn = document.getElementById("btn-export-mobile");
   if (!exportBtn) return;
 
   exportBtn.addEventListener("click", () => {
-    const exportSec = document.getElementById("app-store-export");
+    const exportSec = document.getElementById("pwa-export");
     if (exportSec) {
       exportSec.scrollIntoView({ behavior: "smooth" });
     }
-    appendTerminalLine("[CLI] Generated Capacitor config & PWA webmanifest.", "success");
-    appendTerminalLine("[CLI] Run 'npx cap run android' or 'npx cap run ios' to build native apps.", "info");
+    appendTerminalLine("[PWA] Generated WebApp manifest & service worker cache.", "success");
+    appendTerminalLine("[PWA] 100% In-Browser: Zero Apple Developer fees ($0.00) & Zero App Store review delays.", "info");
   });
 }
 

@@ -41,6 +41,20 @@ load_env()
 GMAIL_USER = os.getenv("GMAIL_USER", "prefrontalcorporate@gmail.com")
 GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD", "")
 VIP_ALERT_RECIPIENT = os.getenv("VIP_ALERT_RECIPIENT", "daboldflex@gmail.com")
+PROCESSED_IDS_PATH = os.path.join(os.path.dirname(__file__), "processed_email_ids.json")
+
+def load_processed_ids() -> set:
+    if os.path.exists(PROCESSED_IDS_PATH):
+        try:
+            with open(PROCESSED_IDS_PATH, "r", encoding="utf-8") as f:
+                return set(json.load(f))
+        except Exception:
+            return set()
+    return set()
+
+def save_processed_ids(ids: set):
+    with open(PROCESSED_IDS_PATH, "w", encoding="utf-8") as f:
+        json.dump(list(ids)[-5000:], f)
 
 AUTOMATED_SENDERS = [
     "noreply", "no-reply", "donotreply", "notifications@", "googlealerts",
@@ -167,8 +181,14 @@ def check_inbox_and_process(max_recent=25, dry_run=False):
         target_ids = email_ids[-max_recent:]
         print(f"[INBOX] Polling {len(target_ids)} most recent emails (out of {len(email_ids)} total)...")
 
+        processed_ids = load_processed_ids()
         processed_leads = []
         for e_id in reversed(target_ids):
+            e_id_str = e_id.decode()
+            if e_id_str in processed_ids:
+                continue
+            processed_ids.add(e_id_str)
+
             status, data = mail.fetch(e_id, "(RFC822)")
             if status != "OK" or not data or not data[0]:
                 continue
@@ -210,6 +230,7 @@ def check_inbox_and_process(max_recent=25, dry_run=False):
                     "engine_status": proc_res.get("status")
                 })
 
+        save_processed_ids(processed_ids)
         mail.close()
         mail.logout()
         print(f"[CYCLE COMPLETE] Checked {len(target_ids)} messages. Forwarded {len(processed_leads)} positive leads.")

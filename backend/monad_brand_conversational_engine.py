@@ -302,6 +302,15 @@ def process_inbound_message(sender: str, subject: str, body: str, dry_run=False)
 
     elif decision == "TRIGGER_HANDOVER_PACKAGE":
         thread["stage"] = "HANDED_OVER"
+        last_alerted_count = thread.get("last_alerted_msg_count", 0)
+        current_msg_count = len(thread["history"])
+        
+        if current_msg_count <= last_alerted_count:
+            print(f"[DEDUPLICATION] Handover alert already dispatched for {prospect_email} at message count {last_alerted_count}. Suppressing duplicate.")
+            save_threads(threads)
+            return {"status": "HANDOVER_ALREADY_SENT", "prospect": prospect_email}
+            
+        thread["last_alerted_msg_count"] = current_msg_count
         save_threads(threads)
         if not dry_run:
             dispatch_handover_package(prospect_email, thread["prospect_name"], thread["brand_name"], thread["history"], commentary)
